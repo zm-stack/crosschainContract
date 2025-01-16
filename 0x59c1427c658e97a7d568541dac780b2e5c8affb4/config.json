@@ -1,0 +1,263 @@
+{
+    "Contracts": [
+      {
+        "Name": "Arbitrum_Adapter",
+        "Type": "relayer",
+        "Oracle": "send_message",
+        "Source_Function_Signature": [
+          "constructor(ArbitrumL1InboxLike, ArbitrumL1ERC20GatewayLike)",
+          "relayMessage(address,bytes)",
+          "relayTokens(address,address,uint256,address)"
+        ],
+        "Destination_Function_Signature": [
+          "receiveSwapCrossChain(address,address,uint16,uint256,address,uint256)"
+        ],
+        "Source_Message_Event": [
+          "MessageRelayed",
+          "TokensRelayed"
+        ],
+        "Source_Message_External_Call": [
+          "ArbitrumL1InboxLike.createRetryableTicket",
+          "ArbitrumL1ERC20GatewayLike.getGateway",
+          "IERC20.safeIncreaseAllowance",
+          "ArbitrumL1ERC20GatewayLike.outboundTransfer"
+        ],
+        "Destination_Message_Event": [
+          "CrossChainSwap"
+        ],
+        "Destination_Message_External_Call": [
+          "IAsset.transferUnderlyingToken(address,uint256)"
+        ]
+      },
+      {
+        "Name": "Ethereum_Adapter",
+        "Type": "relayer",
+        "Oracle": "send_message",
+        "Source_Function_Signature": [
+          "relayMessage(address,bytes)",
+          "relayTokens(address,address,uint256,address)"
+        ],
+        "Destination_Function_Signature": [],
+        "Source_Message_Event": [
+          "MessageRelayed",
+          "TokensRelayed"
+        ],
+        "Source_Message_External_Call": [
+          "_executeCall"
+        ],
+        "Destination_Message_Event": [],
+        "Destination_Message_External_Call": []
+      },
+      {
+        "Name": "Mock_Adapter",
+        "Type": "relayer",
+        "Oracle": "send_message",
+        "Source_Function_Signature": [
+          "relayMessage(address,bytes)",
+          "relayTokens(address,address,uint256,address)"
+        ],
+        "Destination_Function_Signature": [],
+        "Source_Message_Event": [
+          "RelayMessageCalled",
+          "RelayTokensCalled"
+        ],
+        "Source_Message_External_Call": [
+          "Mock_Bridge.bridgeMessage",
+          "Mock_Bridge.bridgeTokens"
+        ],
+        "Destination_Message_Event": [],
+        "Destination_Message_External_Call": []
+      },
+      {
+        "Name": "Optimism_Adapter",
+        "Type": "relayer",
+        "Oracle": "send_message",
+        "Source_Function_Signature": [
+          "relayMessage(address,bytes)",
+          "relayTokens(address,address,uint256,address)"
+        ],
+        "Destination_Function_Signature": [],
+        "Source_Message_Event": [
+          "MessageRelayed",
+          "TokensRelayed"
+        ],
+        "Source_Message_External_Call": [
+          "sendCrossDomainMessage",
+          "IL1StandardBridge.depositETHTo",
+          "IL1StandardBridge.depositERC20To"
+        ],
+        "Destination_Message_Event": [],
+        "Destination_Message_External_Call": []
+      },
+      {
+        "Name": "Polygon_Adapter",
+        "Type": "relayer",
+        "Oracle": "send_message",
+        "Source_Function_Signature": [
+          "relayMessage(address,bytes)",
+          "relayTokens(address,address,uint256,address)"
+        ],
+        "Destination_Function_Signature": [],
+        "Source_Message_Event": [
+          "MessageRelayed",
+          "TokensRelayed"
+        ],
+        "Source_Message_External_Call": [
+          "fxStateSender.sendMessageToChild",
+          "rootChainManager.depositFor",
+          "depositManager.depositERC20ForUser"
+        ],
+        "Destination_Message_Event": [],
+        "Destination_Message_External_Call": []
+      },
+      {
+        "Name": "Arbitrum_SpokePool",
+        "Type": "relayer",
+        "Oracle": "send_message",
+        "Source_Function_Signature": [
+          "setL2GatewayRouter(address)",
+          "whitelistToken(address,address)"
+        ],
+        "Destination_Function_Signature": [],
+        "Source_Message_Event": [
+          "ArbitrumTokensBridged",
+          "SetL2GatewayRouter",
+          "WhitelistedTokens"
+        ],
+        "Source_Message_External_Call": [
+          "StandardBridgeLike.outboundTransfer"
+        ],
+        "Destination_Message_Event": [],
+        "Destination_Message_External_Call": []
+      },
+      {
+        "Name": "Ethereum_SpokePool",
+        "Type": "relayer",
+        "Oracle": "none",
+        "Source_Function_Signature": [
+          "setCrossDomainAdmin(address)",
+          "setHubPool(address)",
+          "setEnableRoute(address,uint256,bool)",
+          "setDepositQuoteTimeBuffer(uint32)",
+          "relayRootBundle(bytes32,bytes32)",
+          "emergencyDeleteRootBundle(uint256)",
+          "deposit(address,address,uint256,uint256,uint64,uint32)",
+          "speedUpDeposit(address,uint64,uint32,bytes)",
+          "fillRelay(address,address,address,uint256,uint256,uint256,uint256,uint64,uint64,uint32)",
+          "fillRelayWithUpdatedFee(address,address,address,uint256,uint256,uint256,uint256,uint64,uint64,uint64,uint32,bytes)",
+          "executeSlowRelayLeaf(address,address,address,uint256,uint256,uint64,uint64,uint32,uint32,bytes32[])",
+          "executeRelayerRefundLeaf(uint32,RelayerRefundLeaf,bytes32[])",
+          "chainId()"
+        ],
+        "Destination_Function_Signature": [],
+        "Source_Message_Event": [
+          "SetXDomainAdmin",
+          "SetHubPool",
+          "EnabledDepositRoute",
+          "SetDepositQuoteTimeBuffer",
+          "RelayedRootBundle",
+          "EmergencyDeleteRootBundle",
+          "FundsDeposited",
+          "RequestedSpeedUpDeposit",
+          "FilledRelay",
+          "ExecutedRelayerRefundRoot",
+          "TokensBridged"
+        ],
+        "Source_Message_External_Call": [
+          "IERC20.transfer"
+        ],
+        "Destination_Message_Event": [],
+        "Destination_Message_External_Call": []
+      },
+      {
+        "Name": "Optimism_SpokePool",
+        "Type": "relayer",
+        "Oracle": "send_message",
+        "Source_Function_Signature": [
+          "setL1GasLimit(uint32)",
+          "setTokenBridge(address,address)",
+          "executeSlowRelayLeaf(address,address,address,uint256,uint256,uint64,uint64,uint32,uint32,bytes32[])",
+          "executeRelayerRefundLeaf(uint32,RelayerRefundLeaf,bytes32[])"
+        ],
+        "Destination_Function_Signature": [],
+        "Source_Message_Event": [
+          "OptimismTokensBridged",
+          "SetL1Gas",
+          "SetL2TokenBridge"
+        ],
+        "Source_Message_External_Call": [
+          "IL2ERC20Bridge.withdrawTo"
+        ],
+        "Destination_Message_Event": [],
+        "Destination_Message_External_Call": []
+      },
+      {
+        "Name": "Polygon_SpokePool",
+        "Type": "relayer",
+        "Oracle": "send_message",
+        "Source_Function_Signature": [
+          "setFxChild(address)",
+          "setPolygonTokenBridger(address)",
+          "processMessageFromRoot(uint256,address,bytes)",
+          "wrap()",
+          "executeSlowRelayLeaf(address,address,address,uint256,uint256,uint64,uint64,uint32,uint32,bytes32[])",
+          "executeRelayerRefundLeaf(uint32,RelayerRefundLeaf,bytes32[])"
+        ],
+        "Destination_Function_Signature": [],
+        "Source_Message_Event": [
+          "SetFxChild",
+          "SetPolygonTokenBridger",
+          "FilledRelay",
+          "TokensBridged",
+          "ExecutedRelayerRefundRoot",
+          "BridgedTokens",
+          "BridgedMessage"
+        ],
+        "Source_Message_External_Call": [
+          "polygonTokenBridger.send"
+        ],
+        "Destination_Message_Event": [],
+        "Destination_Message_External_Call": []
+      },
+      {
+        "Name": "SpokePool",
+        "Type": "relayer",
+        "Oracle": "none",
+        "Source_Function_Signature": [
+          "setCrossDomainAdmin(address)",
+          "setHubPool(address)",
+          "setEnableRoute(address,uint256,bool)",
+          "setDepositQuoteTimeBuffer(uint32)",
+          "relayRootBundle(bytes32,bytes32)",
+          "emergencyDeleteRootBundle(uint256)",
+          "deposit(address,address,uint256,uint256,uint64,uint32)",
+          "speedUpDeposit(address,uint64,uint32,bytes)",
+          "fillRelay(address,address,address,uint256,uint256,uint256,uint256,uint64,uint64,uint32)",
+          "fillRelayWithUpdatedFee(address,address,address,uint256,uint256,uint256,uint256,uint64,uint64,uint64,uint32,bytes)",
+          "executeSlowRelayLeaf(address,address,address,uint256,uint256,uint64,uint64,uint32,uint32,bytes32[])",
+          "executeRelayerRefundLeaf(uint32,RelayerRefundLeaf,bytes32[])",
+          "chainId()"
+        ],
+        "Destination_Function_Signature": [],
+        "Source_Message_Event": [
+          "SetXDomainAdmin",
+          "SetHubPool",
+          "EnabledDepositRoute",
+          "SetDepositQuoteTimeBuffer",
+          "RelayedRootBundle",
+          "EmergencyDeleteRootBundle",
+          "FundsDeposited",
+          "RequestedSpeedUpDeposit",
+          "FilledRelay",
+          "ExecutedRelayerRefundRoot",
+          "TokensBridged"
+        ],
+        "Source_Message_External_Call": [
+          "_bridgeTokensToHubPool(RelayerRefundLeaf)"
+        ],
+        "Destination_Message_Event": [],
+        "Destination_Message_External_Call": []
+      }
+    ]
+  }
+  

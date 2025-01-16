@@ -1,0 +1,19 @@
+{
+    "Type": "Relayer",
+    "Oracle": "none",
+    "Source_Function_Signature": [
+      "ccipSend(uint64, Client.EVM2AnyMessage)"
+    ],
+    "Destination_Function_Signature": [],
+    "Source_Message_Event": [],
+    "Source_Message_External_Call": [
+      "IRouterClient.getFee(uint64, Client.EVM2AnyMessage)",
+      "IRouterClient.ccipSend(uint64, Client.EVM2AnyMessage)",
+      "IERC20.safeTransferFrom(address,address,uint256)",
+      "IERC20.safeApprove(address,uint256)",
+      "IERC20.transfer(address,uint256)"
+    ],
+    "Destination_Message_Event": [],
+    "Destination_Message_External_Call": []
+  }
+  

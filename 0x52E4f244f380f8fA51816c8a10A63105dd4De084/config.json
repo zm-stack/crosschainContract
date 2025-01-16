@@ -1,0 +1,25 @@
+{
+    "Type": "Notary",
+    "Oracle": "none",
+    "Source_Function_Signature": [
+      "burn(address,uint256,uint64,address,uint64)",
+      "burnFrom(address,uint256,uint64,address,uint64)"
+    ],
+    "Destination_Function_Signature": [
+      "mint(bytes,bytes[],address[],uint256[])"
+    ],
+    "Source_Message_Event": [
+      "Burn(bytes32,address,address,uint256,uint64,address,uint64)"
+    ],
+    "Source_Message_External_Call": [
+      "IPeggedToken.burn(address,uint256)",
+      "IPeggedTokenBurnFrom.burnFrom(address,uint256)"
+    ],
+    "Destination_Message_Event": [
+      "Mint(bytes32,address,address,uint256,uint64,bytes32,address)"
+    ],
+    "Destination_Message_External_Call": [
+      "IPeggedToken.mint(address,uint256)"
+    ]
+  }
+  

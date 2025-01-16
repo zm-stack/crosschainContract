@@ -1,0 +1,63 @@
+{
+    "Type": "relayer",
+    "Oracle": "send_message",
+    "Source_Function_Signature": [
+      "constructor(uint16)",
+      "pause()",
+      "unpause()",
+      "setDev(address)",
+      "setRouter(ICSMCrossChainRouter)",
+      "setSlippageParams(uint256,uint256,uint256,uint256)",
+      "setHaircutRate(uint256)",
+      "setRetentionRatio(uint256)",
+      "setMaxPriceDeviation(uint256)",
+      "setPriceOracle(address)",
+      "setFeeCollector(address)",
+      "addAsset(address,address)",
+      "removeAsset(address)",
+      "deposit(address,uint256,address,uint256)",
+      "withdraw(address,uint256,uint256,address,uint256)",
+      "withdrawFromOtherAsset(address,address,uint256,uint256,address,uint256)",
+      "swapCrossChain(address,uint256,uint256,uint16,uint256)",
+      "receiveSwapCrossChain(address,address,uint16,uint256,address,uint256)",
+      "recoverUserFunds(address)",
+      "quotePotentialSwap(address,address,uint256,uint256,uint16)",
+      "quotePotentialWithdraw(address,uint256)",
+      "quotePotentialWithdrawFromOtherAsset(address,address,uint256)",
+      "quoteMaxInitialAssetWithdrawable(address,address)"
+    ],
+    "Destination_Function_Signature": [
+      "handleReceived(bool,address,uint256)"
+    ],
+    "Source_Message_Event": [
+      "DevUpdated(address,address)",
+      "RouterUpdated(ICSMCrossChainRouter,ICSMCrossChainRouter)",
+      "SlippageParamsUpdated(uint256,uint256,uint256,uint256,uint256,uint256,uint256,uint256)",
+      "HaircutRateUpdated(uint256,uint256)",
+      "RetentionRatioUpdated(uint256,uint256)",
+      "PriceDeviationUpdated(uint256,uint256)",
+      "OracleUpdated(address,address)",
+      "FeeCollectorUpdated(address,address)",
+      "AssetAdded(address,address)",
+      "Deposit(address,address,uint256,uint256,address)",
+      "Withdraw(address,address,uint256,uint256,address)",
+      "CrossChainSwap(address,address,address,uint16,uint256,uint256)"
+    ],
+    "Source_Message_External_Call": [
+      "IERC20.safeTransferFrom(address,address,uint256)",
+      "IERC20.safeTransfer(address,uint256)",
+      "IERC20Wrapper.deposit(address,uint256)",
+      "IERC20Wrapper.transfer(address,uint256)",
+      "IERC20Wrapper.withdraw(address,uint256)",
+      "IRouterClient.ccipSend(uint64,Client.EVM2AnyMessage)",
+      "IRouterClient.getFee(uint64,Client.EVM2AnyMessage)",
+      "ICSMCrossChainRouter.route(uint16,address,uint256,bytes)"
+    ],
+    "Destination_Message_Event": [
+      "CrossChainSwap(address,address,address,uint16,uint256,uint256)"
+    ],
+    "Destination_Message_External_Call": [
+      "IAsset.transferUnderlyingToken(address,uint256)"
+    ]
+  }
+  

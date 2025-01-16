@@ -1,0 +1,23 @@
+{
+    "Type": "Relayer",
+    "Oracle": "none",
+    "Source_Function_Signature": [
+      "transferRemote(string,address,uint256,uint256,uint8,bytes32,bytes32)"
+    ],
+    "Destination_Function_Signature": [
+      "execute(bytes32,string,string,bytes)",
+      "executeWithToken(bytes32,string,string,bytes,string,uint256)"
+    ],
+    "Source_Message_Event": [
+      "MessageSended(address,bytes,string)"
+    ],
+    "Source_Message_External_Call": [
+      "callContract(string,string,bytes)",
+      "payNativeGasForContractCall(address,string,string,bytes,address)"
+    ],
+    "Destination_Message_Event": [
+      "FalseSender(string,string)"
+    ],
+    "Destination_Message_External_Call": []
+  }
+  

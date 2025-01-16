@@ -1,0 +1,27 @@
+{
+    "Type": "relayer",
+    "Oracle": "send_message",
+    "Source_Function_Signature": [
+      "transfer(uint64,address,uint256,bool,bytes)",
+      "retry(bytes32)"
+    ],
+    "Destination_Function_Signature": [
+      "handleReceived(bool,address,uint256)"
+    ],
+    "Source_Message_Event": [
+      "Sent(address,address,uint256,uint256,uint64,bytes32)",
+      "Received(bytes32,uint64,address,uint256)",
+      "RecoverdReceive(bytes32,uint64,address,uint256)",
+      "Failed(bytes32,uint64,address,uint256,bytes)"
+    ],
+    "Source_Message_External_Call": [
+      "IERC20Wrapper.deposit(address,uint256)",
+      "IERC20Wrapper.transfer(address,uint256)",
+      "IERC20Wrapper.withdraw(address,uint256)",
+      "IRouterClient.ccipSend(uint64,Client.EVM2AnyMessage)",
+      "IRouterClient.getFee(uint64,Client.EVM2AnyMessage)"
+    ],
+    "Destination_Message_Event": [],
+    "Destination_Message_External_Call": []
+  }
+  

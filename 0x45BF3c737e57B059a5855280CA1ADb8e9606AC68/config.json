@@ -1,0 +1,22 @@
+{
+    "Type": "Relayer",
+    "Oracle": "none",
+    "Source_Function_Signature": [
+      "xcall(uint32,address,address,address,uint256,uint256,bytes)"
+    ],
+    "Destination_Function_Signature": [
+      "xReceive(bytes32,uint256,address,address,uint32,bytes)"
+    ],
+    "Source_Message_Event": [],
+    "Source_Message_External_Call": [
+      "IConnext.xcall(uint32,address,address,address,uint256,uint256,bytes)"
+    ],
+    "Destination_Message_Event": [
+      "LockBoxWithdrawFailed(bytes)"
+    ],
+    "Destination_Message_External_Call": [
+      "IXERC20Lockbox.withdraw(uint256)",
+      "IERC20.transfer(address,uint256)"
+    ]
+  }
+  

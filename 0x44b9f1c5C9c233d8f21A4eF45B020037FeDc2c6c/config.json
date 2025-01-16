@@ -1,0 +1,22 @@
+{
+    "Type": "Relayer",
+    "Oracle": "none",
+    "Source_Function_Signature": [
+      "sendFrom(address,uint16,bytes,uint,address payable,address,bytes)"
+    ],
+    "Destination_Function_Signature": [
+      "lzReceive(uint16,bytes,uint64,bytes)",
+      "nonblockingLzReceive(uint16,bytes,uint64,bytes)"
+    ],
+    "Source_Message_Event": [
+      "SendToChain(uint16,address,bytes,uint)"
+    ],
+    "Source_Message_External_Call": [
+      "send(uint16,bytes,bytes,address payable,address,bytes)"
+    ],
+    "Destination_Message_Event": [
+      "ReceiveFromChain(uint16,address,uint)"
+    ],
+    "Destination_Message_External_Call": []
+  }
+  

@@ -1,0 +1,24 @@
+{
+    "Type": "Relayer",
+    "Oracle": "none",
+    "Source_Function_Signature": [
+      "create(CreateParams)"
+    ],
+    "Destination_Function_Signature": [
+      "omReceive(bytes,address,string)"
+    ],
+    "Source_Message_Event": [
+      "OmReceived(string,address)"
+    ],
+    "Source_Message_External_Call": [
+      "ICollectionsRepository.create(CreateParams,address)",
+      "IOmnichainRouter.send(string,address,bytes,uint256,address,uint256)"
+    ],
+    "Destination_Message_Event": [
+      "OmReceived(string,address)"
+    ],
+    "Destination_Message_External_Call": [
+      "ICollectionsRepository.create(CreateParams,address)"
+    ]
+  }
+  

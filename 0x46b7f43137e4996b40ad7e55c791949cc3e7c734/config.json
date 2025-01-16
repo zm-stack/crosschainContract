@@ -1,0 +1,28 @@
+{
+    "Type": "Relayer",
+    "Oracle": "none",
+    "Source_Function_Signature": [
+      "sendOhm(uint16,address,uint256)"
+    ],
+    "Destination_Function_Signature": [
+      "lzReceive(uint16,bytes,uint64,bytes)",
+      "receiveMessage(uint16,bytes,uint64,bytes)"
+    ],
+    "Source_Message_Event": [
+      "BridgeTransferred(address,uint256,uint16)"
+    ],
+    "Source_Message_External_Call": [
+      "ILayerZeroEndpoint.send(uint16,bytes,bytes,address payable,address,bytes)",
+      "MINTR.burnOhm(address,uint256)"
+    ],
+    "Destination_Message_Event": [
+      "BridgeReceived(address,uint256,uint16)",
+      "MessageFailed(uint16,bytes,uint64,bytes)",
+      "RetryMessageSuccess(uint16,bytes,uint64,bytes32)"
+    ],
+    "Destination_Message_External_Call": [
+      "MINTR.increaseMintApproval(address,uint256)",
+      "MINTR.mintOhm(address,uint256)"
+    ]
+  }
+  

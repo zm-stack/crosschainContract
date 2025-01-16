@@ -1,0 +1,33 @@
+{
+    "Type": "Optimistic",
+    "Oracle": "send_message",
+    "Source_Function_Signature": [
+      "relayDeposit(DepositData,uint64)",
+      "relayAndSpeedUp(DepositData,uint64)"
+    ],
+    "Destination_Function_Signature": [
+      "settleRelay(DepositData, RelayData)",
+      "disputeRelay(DepositData, RelayData)",
+      "relayDeposit(DepositData,uint64)"
+    ],
+    "Source_Message_Event": [
+      "LiquidityAdded(uint256,uint256,address)",
+      "LiquidityRemoved(uint256,uint256,address)",
+      "DepositRelayed(bytes32,DepositData,RelayData,bytes32)",
+      "RelaySpedUp(bytes32,address,RelayData)"
+    ],
+    "Source_Message_External_Call": [
+      "IERC20.safeTransferFrom(address,address,uint256)",
+      "IERC20.safeTransfer(address,uint256)",
+      "WETH9Like.deposit()",
+      "WETH9Like.withdraw(uint256)"
+    ],
+    "Destination_Message_Event": [
+      "RelaySettled(bytes32,address,RelayData)"
+    ],
+    "Destination_Message_External_Call": [
+      "SkinnyOptimisticOracleInterface.requestAndProposePriceFor(bytes32,uint32,bytes,IERC20,uint256,uint256,uint256,address,int256)",
+      "SkinnyOptimisticOracleInterface.disputePriceFor(bytes32,uint32,bytes,SkinnyOptimisticOracleInterface.Request,address,address)"
+    ]
+  }
+  
